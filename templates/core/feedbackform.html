@@ -1,0 +1,99 @@
+{% extends 'snippits/base.html' %} {% block title %}
+<title>Notes Website</title>
+<meta content="" name="description">
+<meta content="" name="keywords"> {% endblock %} {% load static %} {% block head %}
+<!-- contact  -->
+<link rel="stylesheet" href="{% static 'css/feedback.css' %}"> {% endblock %} {% block content %}
+<section class="loginModal">
+    <div class="container text-center">
+        <div class="costumModal">
+
+            <div id="costumModal42" class="modal" data-easein="bounce" tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">
+                                ×
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+
+                            <p>
+                                Conguration (name) you have successfully logged in </p>
+                            <div class="social-icons">
+                                <a href=""><i class="fa fa-share text-white" style="font-size: 15px;">&nbsp;Share this with your friend&nbsp;</i></a>
+                                <a class="social-icon social-icon--twitter">
+                                    <i class="fa fa-twitter"></i>
+                                    <div class="tooltip">Twitter</div>
+                                </a>
+
+                                <a class="social-icon social-icon--instagram">
+                                    <i class="fa fa-instagram"></i>
+                                    <div class="tooltip">Instagram</div>
+                                </a>
+                                <a class="social-icon social-icon--linkedin">
+                                    <i class="fa fa-linkedin"></i>
+                                    <div class="tooltip">LinkedIn</div>
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-warning text-white m-3" data-dismiss="modal" aria-hidden="true">
+                               Cancel
+                            </button>
+                            <button class="btn btn-danger text-white m-3" data-dismiss="modal" aria-hidden="true">
+                               Delete
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+<!-- feedback -->
+<section class="feed">
+    <div class="container">
+        <h2 style="font-size: 26px;">Please Provide your valuable feedback</h2>
+        <div class="post">
+            <div class="text">Thanks for rating us!</div>
+            <div class="edit">EDIT</div>
+        </div>
+        <div class="star-widget">
+            <input type="radio" name="rate" id="rate-5" value="5">
+            <label for="rate-5" class="fa fa-star"></label>
+            <input type="radio" name="rate" id="rate-4" value="4">
+            <label for="rate-4" class="fa fa-star"></label>
+            <input type="radio" name="rate" id="rate-3" value="3">
+            <label for="rate-3" class="fa fa-star"></label>
+            <input type="radio" name="rate" id="rate-2" value="2">
+            <label for="rate-2" class="fa fa-star"></label>
+            <input type="radio" name="rate" id="rate-1" value="1">
+            <label for="rate-1" class="fa fa-star"></label>
+            <form action="#">
+                <script>
+                </script>
+                <header></header>
+                <div class="textarea">
+                    <textarea cols="30" name="exprience" placeholder="Describe your experience.."></textarea>
+                </div>
+                <div class="btn">
+                    <button type="submit">Post</button>
+                </div>
+                <a href="https://wa.me/919413944510?text=Hii%20thanks%20for%20Your%20Platform" target="__blank"> <i class="fa fa-whatsapp"></i></a>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- endfeedback-->
+{% endblock %} {% block script %}
+<script src="{% static 'js/feedback.js' %}"></script>
+
+{% endblock %}

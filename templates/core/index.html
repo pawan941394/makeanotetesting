@@ -1,0 +1,552 @@
+{% extends 'snippits/base.html' %} {% block title %}
+
+<title>Notes Website</title>
+<meta content="" name="description">
+<meta content="" name="keywords"> {% endblock %} {% block content %} {% for message in messages %}
+<section class="loginModal">
+    <div class="container text-center">
+        <div class="costumModal">
+            <div id="costumModal42" class="modal" data-easein="bounce" tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <style>
+                        .modal-content {
+                            border: 1px solid gray;
+                            background: black;
+                            border-radius: 12px;
+                            box-shadow: 0px 0px 11px #f1f1f1;
+                        }
+                        
+                        .modal-header {
+                            border-bottom: none;
+                        }
+                    </style>
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">
+                                ×
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+                            <p style="color: #ff8d00;">{{message}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<button href="#costumModal42" role="button" data-toggle="modal" style="display: none;" id="alertButton">alert</button>
+
+<script>
+    window.onload = function() {
+        document.getElementById('alertButton').click();
+    }
+</script>
+{% endfor %} {% load static %}
+<!-- ======= HomeMainPage Section ======= -->
+<section id="HomeMainPage">
+    <div class="HomeMainHeading">
+        <h3>Welcome to <strong>MAKEaNOTE</strong></h3>
+        <h1> Always there notebook</h1>
+        <h2>All the notebook you need and more.</h2>
+        {% if user.is_authenticated %}
+        <div class="buttonStarting">
+            <a href="{% url 'core:dashboard' %}" class="btn-get-started scrollto">Make a Notes</a>
+            <a href="{% url 'core:checklist' %}" class="btn-get-started scrollto">Make a checklist</a>
+        </div>
+        {% else %}
+        <div class="buttonStarting">
+            <a href="{% url 'core:demoNotes' %}" class="btn-get-started scrollto">Make a Notes</a>
+            <a href="{% url 'core:demoChecklist' %}" class="btn-get-started scrollto">Make a checklist</a>
+        </div>
+        {% endif %}
+
+    </div>
+
+
+</section>
+<!-- End HomeMainPage -->
+
+<main id="main">
+
+
+
+    <style>
+        .serviceshome {
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .section-title {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .section-title h2 {
+            font-size: 48px;
+            font-weight: 700;
+        }
+        
+        .service-section {
+            padding: 70px;
+        }
+        
+        .single-service {
+            text-align: left;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0px 30px 50px 0px rgb(0 0 29 / 10%);
+            transform: translateY(-5px);
+            border-radius: 30px;
+        }
+        
+        .single-service:hover {
+            box-shadow: 0px 0px 20px #f1f1f1;
+            transition: .5s;
+        }
+        
+        .single-service i {
+            font-size: 70px;
+            color: #fa0a48;
+            margin-bottom: 10px;
+        }
+        
+        .single-service h3 {
+            font-size: 21px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: blue !important;
+        }
+        
+        .single-service p {
+            font-size: 16px;
+            font-weight: 400;
+            color: #777;
+        }
+    </style>
+    <section class="serviceshome">
+
+
+        <div class="service-section fintechServices">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-title">
+                            <h2>Why us</h2>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="single-service">
+
+                            <i> <img src="{% static 'img/images/1.png' %}" alt=""></i>
+                            <h3>Education</h3>
+                            <p>As we have a TeamMembers with a collective experience of 40+ years, we clearly understand the needs of the financial sector; security, reliability and..</p>
+                            <div class="content">
+
+                                <a href="#"> Read More </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="single-service">
+
+                            <i> <img src="{% static 'img/images/2.png' %}" alt=""></i>
+                            <h3>Create Notes</h3>
+                            <p>With our highly configured systems, we are in a position to provide smart solutions for the automation of money transfer systems.</p>
+                            <div class="content">
+
+                                <a href="#"> Read More </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="single-service">
+
+                            <i> <img src="{% static 'img/images/3.png' %}" alt=""></i>
+                            <h3>Write Anythime</h3>
+                            <p>With the experience our TeamMembers holds, we are passionate about building payments platform that adapts to changing customer needs. </p>
+                            <div class="content">
+
+                                <a href="#"> Read More </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .icon-block {
+            padding: 50px 40px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 40px 0px rgb(85 128 255 / 20%);
+            border-radius: 34px;
+        }
+        
+        .icon-block:hover {
+            box-shadow: 0px 0px 20px #f1f1f1;
+            transition: .5s;
+        }
+        
+        .text-center {
+            text-align: center !important;
+        }
+        
+        .pl-4,
+        .px-4 {
+            padding-left: 1.5rem !important;
+        }
+        
+        .letter-spacing {
+            letter-spacing: 2px;
+        }
+        
+        .text-sm {
+            font-size: 14px;
+        }
+        
+        .text-uppercase {
+            text-transform: uppercase !important;
+        }
+        
+        .process h5 {
+            color: blue !important;
+        }
+    </style>
+    <section class="section process">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <div class="process-block pl-4">
+                        <span class="text-uppercase text-sm letter-spacing">Why choose us</span>
+                        <h2 class="mb-4 mt-3">We help you to make work easy</h2>
+                        <p class="mb-4">We are a TeamMembers of highly skilled leaders and engineers with excellent technical knowledge and experience in using latest software standards, tools, platforms, frameworks and technologies and we invest continuously in training
+                            and education, to be able to respond to any new technology challenges and demands from our clients.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 col-xs-12 col-md-12">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="icon-block text-center mb-4 mb-lg-0">
+
+                                <i> <img src="{% static 'img/images/Untitled design.png' %}" alt=""></i>
+                                <h5>Free Stroage</h5>
+                                <p>We are providing a complete solution for web development</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="icon-block text-center mt-4 mb-4 mb-lg-0">
+                                <i> <img src="{% static 'img/images/Untitled design (2).png' %}" alt=""></i>
+                                <h5>Access Anytime</h5>
+                                <p>We are providing a complete solution for MOBILE APP DEVELOPMENT</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="icon-block text-center">
+
+                                <i> <img src="{% static 'img/images/Untitled design (3).png' %}" alt=""></i>
+                                <h5>24*7 support</h5>
+                                <p>We are providing a complete solution for Mobile App Design Services</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Services Section -->
+
+
+
+    <!-- End F.A.Q Section -->
+
+    <!-- ======= TeamMembers Section ======= -->
+    <section id="TeamMembers" class="TeamMembers">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Testimonials</h2>
+                <h3>Our Hardworking <span>TeamMembers</span></h3>
+                <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                    <div class="member">
+                        <div class="member-img">
+                            <img src="{% static 'img/team/team-1.jpg' %}" class="img-fluid" alt="">
+                            <div class="social">
+                                <a href=""><i class="icofont-twitter"></i></a>
+                                <a href=""><i class="icofont-facebook"></i></a>
+                                <a href=""><i class="icofont-instagram"></i></a>
+                                <a href=""><i class="icofont-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Walter White</h4>
+                            <span>Chief Executive Officer</span> <span>Message</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                    <div class="member">
+                        <div class="member-img">
+                            <img src="{% static 'img/team/team-2.jpg' %}" class="img-fluid" alt="">
+                            <div class="social">
+                                <a href=""><i class="icofont-twitter"></i></a>
+                                <a href=""><i class="icofont-facebook"></i></a>
+                                <a href=""><i class="icofont-instagram"></i></a>
+                                <a href=""><i class="icofont-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Sarah Jhonson</h4>
+                            <span>Product Manager</span>
+                            <span>Message</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                    <div class="member">
+                        <div class="member-img">
+                            <img src="{% static 'img/team/team-3.jpg' %}" class="img-fluid" alt="">
+                            <div class="social">
+                                <a href=""><i class="icofont-twitter"></i></a>
+                                <a href=""><i class="icofont-facebook"></i></a>
+                                <a href=""><i class="icofont-instagram"></i></a>
+                                <a href=""><i class="icofont-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>William Anderson</h4>
+                            <span>CTO</span> <span>Message</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                    <div class="member">
+                        <div class="member-img">
+                            <img src="{% static 'img/team/team-4.jpg' %}" class="img-fluid" alt="">
+                            <div class="social">
+                                <a href=""><i class="icofont-twitter"></i></a>
+                                <a href=""><i class="icofont-facebook"></i></a>
+                                <a href=""><i class="icofont-instagram"></i></a>
+                                <a href=""><i class="icofont-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Amanda Jepson</h4>
+                            <span>Accountant</span> <span>Message</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- End TeamMembers Section -->
+    <!-- ======= F.A.Q Section ======= -->
+    <section id="Questions" class="Questions">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>F.A.Q</h2>
+                <h3>Frequently Asked <span>Questions</span></h3>
+            </div>
+
+            <ul class="Questions-list">
+
+                <li>
+                    <a data-toggle="collapse" class="" href="#Questions1">Lorem ipsum dolor sit, amet consectetur <i
+                            class="icofont-simple-up"></i></a>
+                    <div id="Questions1" class="collapse show" data-parent=".Questions-list">
+                        <p>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam iusto modi, dolorum porro in sequi odit veritatis aperiam qui minus nostrum consequuntur consectetur dignissimos veniam cumque molestias necessitatibus eveniet architecto? </p>
+                    </div>
+                </li>
+
+                <li>
+                    <a data-toggle="collapse" href="#Questions2" class="collapsed">Feugiat scelerisque varius morbi enim
+                        nunc faucibus a pellentesque? <i class="icofont-simple-up"></i></a>
+                    <div id="Questions2" class="collapse" data-parent=".Questions-list">
+                        <p>
+                            Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in
+                            cursus turpis massa tincidunt dui.
+                        </p>
+                    </div>
+                </li>
+
+                <li>
+                    <a data-toggle="collapse" href="#Questions3" class="collapsed">Dolor sit amet consectetur adipiscing
+                        elit pellentesque habitant morbi? <i class="icofont-simple-up"></i></a>
+                    <div id="Questions3" class="collapse" data-parent=".Questions-list">
+                        <p>
+                            Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna
+                            molestie at elementum eu facilisis sed odio morbi quis
+                        </p>
+                    </div>
+                </li>
+
+                <li>
+                    <a data-toggle="collapse" href="#Questions4" class="collapsed">Ac odio tempor orci dapibus. Aliquam
+                        eleifend mi in nulla? <i class="icofont-simple-up"></i></a>
+                    <div id="Questions4" class="collapse" data-parent=".Questions-list">
+                        <p>
+                            Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in
+                            cursus turpis massa tincidunt dui.
+                        </p>
+                    </div>
+                </li>
+
+                <li>
+                    <a data-toggle="collapse" href="#Questions5" class="collapsed">Tempus quam pellentesque nec nam
+                        aliquam sem et tortor consequat? <i class="icofont-simple-up"></i></a>
+                    <div id="Questions5" class="collapse" data-parent=".Questions-list">
+                        <p>
+                            Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+                        </p>
+                    </div>
+                </li>
+
+                <li>
+                    <a data-toggle="collapse" href="#Questions6" class="collapsed">If you don't find your answer then ask here .<i class="icofont-simple-up"></i></a>
+                    <div id="Questions6" class="collapse" data-parent=".Questions-list">
+                        <a href="https://wa.me/919413944510?text=Hii%20thanks%20for%20Your%20Platform" target="__blank" style="color:red ; font-size:12px;">
+                            Ask us here
+
+                        </a>
+                    </div>
+                </li>
+
+
+            </ul>
+            <div class="social-icons">
+                <h2>Share</h2>
+
+                <a class="social-icon social-icon--twitter" href="{{contactDetails.twitter}}">
+                    <i class="fa fa-twitter"></i>
+                    <div class="tooltip">Twitter</div>
+                </a>
+
+                <a class="social-icon social-icon--instagram" href="{{contactDetails.instagram}}">
+                    <i class="fa fa-instagram"></i>
+                    <div class="tooltip">Instagram</div>
+                </a>
+                <a class="social-icon social-icon--linkedin" href="{{contactDetails.linkedin}}">
+                    <i class="fa fa-linkedin"></i>
+                    <div class="tooltip">LinkedIn</div>
+                </a>
+                <a class="social-icon social-icon--facebook" href="{{contactDetails.facebook}}">
+                    <i class="fa fa-facebook"></i>
+                    <div class="tooltip">Facebook</div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Feedback</h2>
+                <!-- <h3>Contact <span>Us</span></h3> -->
+                <p>We are here you can ask any question here</p>
+            </div>
+
+
+
+            <div class="row mt-5">
+
+                <div class="col-lg-4">
+                    <div class="info">
+                        <div class="address">
+                            <i class="icofont-google-map"></i>
+                            <h4>Location:</h4>
+                            <p>A108 Adam Street, New York, NY 535022</p>
+                        </div>
+
+                        <div class="email">
+                            <i class="icofont-envelope"></i>
+                            <h4>Email:</h4>
+                            <p>{{contactDetails.email}}</p>
+                        </div>
+
+                        <div class="phone">
+                            <i class="icofont-phone"></i>
+                            <h4>Call:</h4>
+                            <p>{{contactDetails.phone}}</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-8 mt-5 mt-lg-0">
+
+                    <form action="{% url 'core:contact' %}" method="post" role="form" class="php-email-form">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-md-6 form-group">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required/>
+                                <div class="validate"></div>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" required/>
+                                <div class="validate"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Suggestion" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" required/>
+                            <div class="validate"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Please write your valuable feedback" required></textarea>
+                            <div class="validate"></div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="loading">Loading</div>
+                            <div class="error-message"></div>
+                            <div class="sent-message">Your message has been sent. Thank you!</div>
+                        </div>
+                        <div class="text-center"><button type="submit">Send Message</button>
+                            <a style="       margin-left: 31px;
+                            margin-top: -14px;
+                            color: white;
+                            background: black;
+                            padding: 10px 27px;
+                            border: 1px solid gray;
+                            border-radius: 12px;" href="https://wa.me/919413944510?text=Hii%20thanks%20for%20Your%20Platform" target="__blank"> <i class="fa fa-whatsapp"></i> </a>
+
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- End Contact Section -->
+
+</main>
+<!-- End #main -->
+
+{% endblock %}

@@ -1,0 +1,16 @@
+.privacypolicy {
+    display: flex;
+    flex-direction: column;
+    max-width: 89%;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin: auto;
+    padding: 27px;
+}
+
+@media only screen and (max-width:600px) {
+    p {
+        color: #777;
+        font-size: 12px;
+    }
+}

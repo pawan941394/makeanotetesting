@@ -1,0 +1,29 @@
+<div class="overview-boxes">
+
+    <div class="box">
+        <div class="right-side">
+            <div class="box-topic" href="#costumModal31" role="button" data-toggle="modal">Add folder</div>
+            <div class="number">&nbsp;&nbsp;{{folderNo}}</div>
+        </div>
+        <a href="">
+            <a href="#costumModal31" role="button" data-toggle="modal"><i class='fa fa-plus cart three'></i></a></a>
+    </div>
+    <div class="box">
+        <div class="right-side">
+            <div class="box-topic" onclick="location.href='{% url 'core:homeNotes' %}'" role="button" data-toggle="">Add Notes</div>
+            <div class="number">&nbsp;&nbsp;{{filesNo}}</div>
+        </div>
+        <a href="{% url 'core:homeNotes' %}">
+            <a href="{% url 'core:homeNotes' %}" role="button" data-toggle="modal"><i onclick="location.href='{% url 'core:homeNotes' %}'" class='fa fa-plus cart three'></i></a></a>
+    </div>`
+    <div class="box">
+        <div class="right-side">
+            <div class="box-topic">Fav Notes</div>
+            <div class="number">&nbsp;&nbsp;{{favNo}}</div>
+        </div>
+        <a href="{% url 'core:favourite' %}">
+
+            <i class='fa fa-heart-o cart two'></i>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,385 @@
+* {
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap");
+body {
+    font-family: "Rubik", sans-serif;
+}
+
+.loginPage .container {
+    display: flex;
+    height: 100vh;
+}
+
+.left {
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    animation-name: left;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-delay: 1s;
+}
+
+.right {
+    flex: 1;
+    background-color: black;
+    transition: 1s;
+    background-image: url(https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.loginPage .header>h2 {
+    margin: 0;
+    color: #4f46a5;
+}
+
+.loginPage .header>h4 {
+    margin-top: 10px;
+    font-weight: normal;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.loginPage .form {
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.loginPage .form>p {
+    text-align: right;
+}
+
+.loginPage .form>p>a {
+    color: #000;
+    font-size: 14px;
+}
+
+.loginPage .form-field {
+    height: 46px;
+    padding: 0 16px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-family: "Rubik", sans-serif;
+    outline: 0;
+    transition: 0.2s;
+    margin-top: 20px;
+}
+
+.loginPage .form-field:focus {
+    border-color: #0f7ef1;
+}
+
+.loginPage .form>button {
+    padding: 12px 10px;
+    border: 0;
+    background: linear-gradient(to right, #de48b5 0%, #0097ff 100%);
+    border-radius: 3px;
+    margin-top: 10px;
+    color: #fff;
+    letter-spacing: 1px;
+    font-family: "Rubik", sans-serif;
+}
+
+.loginPage .animation {
+    animation-name: move;
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+    animation-delay: 2s;
+}
+
+.a1 {
+    animation-delay: 2s;
+}
+
+.a2 {
+    animation-delay: 2.1s;
+}
+
+.a3 {
+    animation-delay: 2.2s;
+}
+
+.a4 {
+    animation-delay: 2.3s;
+}
+
+.a5 {
+    animation-delay: 2.4s;
+}
+
+.a6 {
+    animation-delay: 2.5s;
+}
+
+@keyframes move {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-40px);
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+@keyframes left {
+    0% {
+        opacity: 0;
+        width: 0;
+    }
+    100% {
+        opacity: 1;
+        padding: 20px 40px;
+        width: 440px;
+    }
+}
+
+.loginPage {
+    font-family: 'Rubik', sans-serif;
+    margin-top: -7%;
+}
+
+.loginPage .container {
+    display: flex;
+    height: 100vh;
+}
+
+.left {
+    overflow: hidden;
+    display: block !important;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-delay: 1s;
+    margin-top: 18PX;
+}
+
+.right {
+    flex: 1;
+    background-color: black;
+    transition: 1s;
+    background-image: url(https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 58%;
+    margin-top: 11%;
+    border-radius: 31px;
+    box-shadow: 0px 0px 11px #f1f1f1;
+    transition: .5s;
+}
+
+.loginPage .header>h2 {
+    margin: 0;
+    color: #4f46a5;
+}
+
+.loginPage .header>h4 {
+    margin-top: 10px;
+    font-weight: normal;
+    font-size: 15px;
+    color: rgba(0, 0, 0, .4);
+}
+
+.loginPage .form {
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.loginPage .form>p {
+    text-align: right;
+}
+
+.loginPage .form>p>a {
+    color: #000;
+    font-size: 14px;
+}
+
+.loginPage .form-field {
+    height: 46px;
+    padding: 0 16px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Rubik', sans-serif;
+    outline: 0;
+    transition: .2s;
+    margin-top: 20px;
+}
+
+.loginPage .form-field:focus {
+    border-color: #0f7ef1;
+}
+
+.loginPage .form>button {
+    padding: 12px 10px;
+    border: 0;
+    background: linear-gradient(to right, #de48b5 0%, #0097ff 100%);
+    border-radius: 3px;
+    margin-top: -11px;
+    color: #fff;
+    letter-spacing: 1px;
+    font-family: 'Rubik', sans-serif;
+}
+
+.animation {
+    animation-name: move;
+    animation-duration: .4s;
+    animation-fill-mode: both;
+    animation-delay: 2s;
+}
+
+.a1 {
+    animation-delay: 2s;
+}
+
+.a2 {
+    animation-delay: 2.1s;
+}
+
+.a3 {
+    animation-delay: 2.2s;
+}
+
+.a4 {
+    animation-delay: 2.3s;
+}
+
+.a5 {
+    animation-delay: 2.4s;
+}
+
+.a6 {
+    animation-delay: 2.5s;
+}
+
+@keyframes move {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-40px);
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+@keyframes left {
+    0% {
+        opacity: 0;
+        width: 0;
+    }
+    100% {
+        opacity: 1;
+        padding: 20px 40px;
+        width: 440px;
+    }
+}
+
+.loginPage h6 {
+    margin-top: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width:950px) {
+    .loginPage .container {
+        flex-direction: column-reverse;
+    }
+    .right {
+        height: 70%;
+    }
+    .loginPage .container {
+        display: flex;
+        height: 131vh;
+    }
+    .left {
+        margin: auto;
+        margin-top: 6%;
+    }
+    .right {
+        display: none;
+    }
+}
+
+@media only screen and (max-width:525px) {
+    .right {
+        height: 50%;
+        width: 77%;
+        margin: auto;
+        margin-top: 34%;
+    }
+    .loginPage .container {
+        margin-top: -22%;
+    }
+    .left {
+        margin: auto;
+        margin-top: 26%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .left {
+        margin: auto;
+        align-items: center;
+        justify-content: center;
+    }
+    .loginPage .form {
+        max-width: 100%;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+    }
+    .loginPage .header>h2 {
+        font-size: 23px;
+        margin-top: 16px;
+    }
+    .loginPage .container {
+        padding: 0px !important;
+        margin: 0px !important;
+    }
+    .loginPage {
+        padding: 0px !important;
+    }
+}
+
+@media only screen and (max-width: 410px) {
+    .loginPage .header>h4 {
+        margin-top: 10px;
+        font-weight: normal;
+        font-size: 13px;
+        color: rgba(0, 0, 0, .4);
+    }
+    .loginPage {
+        margin-top: -43%;
+    }
+    .left {
+        margin: auto;
+        align-items: center;
+        justify-content: center;
+        margin-top: 206px;
+    }
+    .left {
+        animation-name: auto !important;
+        margin-top: 230px !important;
+    }
+}

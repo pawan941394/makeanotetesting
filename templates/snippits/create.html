@@ -1,0 +1,72 @@
+<section class="loginModal folder_wali_Modal">
+    <div class="container text-center">
+        <div class="costumModal">
+
+            <div id="costumModal31" class="modal" data-easein="bounce" tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">
+                                ×
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+                            <form action="{% url 'core:directory_create' %}" method="POST">
+                                {% csrf_token %}
+
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1" class="text-white">Create Directory</label>
+                                    <input type="text" class="form-control text-white" id="exampleInputPassword1" style="background-color: transparent;" name="directory_name">
+                                </div>
+
+                                <button type="submit" class="btn btn-warning">Create</button>
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<section class="loginModal file_wali_Modal">
+    <div class="container text-center">
+        <div class="costumModal">
+
+            <div id="costumModal67" class="modal" data-easein="bounce" tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">
+                                ×
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+                            <form>
+
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1" class="text-white">Rename Directory</label>
+                                    <input type="text" class="form-control text-white" id="exampleInputPassword1" style="background-color: transparent;">
+                                </div>
+
+
+
+                                <button type="submit" class="btn btn-warning">Rename</button>
+                            </form>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>

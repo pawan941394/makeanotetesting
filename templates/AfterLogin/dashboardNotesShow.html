@@ -1,0 +1,198 @@
+{% extends 'snippits/base.html' %} {% load static %} {% block title %}
+<title>Notes Website</title>
+<meta content="" name="description">
+<meta content="" name="keywords"> {% endblock %} {% block head %}
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="{% static 'afterLogin/css/dashBoardIndex.css' %}">
+<link rel="stylesheet" href="{% static 'afterLogin/css/allnotes.css' %}">
+<link rel="stylesheet" href="{% static 'afterLogin/css/notesList.css' %}">
+<link rel="stylesheet" href="{% static 'css/modal.css' %}"> {% endblock %} {% block content %}
+
+<!-- DashBoar  -->
+
+{% include 'snippits/deleteaccount.html' %} {% for message in messages %}
+<section class="loginModal" style="    position: absolute;">
+    <div class="container text-center">
+        <div class="costumModal">
+            <div id="costumModal42" class="modal" data-easein="bounce" tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <style>
+                        .modal-content {
+                            border: 1px solid gray;
+                            background: black;
+                            border-radius: 12px;
+                            box-shadow: 0px 0px 11px #f1f1f1;
+                        }
+                        
+                        .modal-header {
+                            border-bottom: none;
+                        }
+                    </style>
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">
+                                ×
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+                            <p style="color: #ff8d00;">{{message}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<button href="#costumModal42" role="button" data-toggle="modal" style="display: none;" id="alertButton">alert</button>
+
+<script>
+    window.onload = function() {
+        document.getElementById('alertButton').click();
+    }
+</script>
+{% endfor %}
+
+<!-- DashBoard -->
+<section class="dashboardIndex">
+    {% include 'snippits/dashboardSidebar.html' %}
+
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn'></i>
+                <span class="dashboard text-white">Notes</span>
+            </div>
+
+        </nav>
+
+        <div class="home-content">
+            <div class="overview-boxes">
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">All Folders</div>
+                        <div class="number">{{folderNo}}</div>
+
+                    </div>
+                    <a href=""><i class='fa fa-book cart'></i></a>
+                </div>
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">Add Notes</div>
+                        <div class="number">{{filesNo}}</div>
+
+                    </div>
+
+                    <a href="{% url 'core:noteAdd' folder.id %}"><i
+                            onclick="location.href='{% url 'core:noteAdd' folder.id %}'"
+                            class='fa fa-plus cart three'></i></a>
+                </div>
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">Favorite Notes</div>
+                        <div class="number">{{favNo}}</div>
+
+                    </div>
+                    <a href="{% url 'core:favourite' %}">
+                        <i class='fa fa-heart-o cart two'></i></a>
+                </div>
+            </div>
+
+            <div class="note-content tab-content" style="   max-width: 90%;
+                margin: auto;">
+                <div id="note1" class="tab-pane fade active show">
+                    <div class="icon active animate__animated animate__fadeIn i-grid">
+
+                        <div class="row" style="    margin-top: 28px;
+                            border: none;">
+                            {% for note in notes %}
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card card-block card-stretch card-height card-bottom-border-success note-detail">
+                                    <div class="card-header d-flex justify-content-between pb-1">
+                                        <div class="icon iq-icon-box-2 icon-border-success rounded">
+
+                                            <img src="{{ profile.image.url }}" alt="" style="   vertical-align: middle;
+                                                width: 47px !important;
+                                                margin-top: -16px;
+                                                border-radius: 23px;">
+                                        </div>
+                                        <div class="card-header-toolbar d-flex align-items-center">
+
+                                            <div class="dropdown">
+                                                <button class="btn btn-small dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="    border: none;
+                                                    color: white;
+                                                    font-weight: 900;
+                                                    background: transparent;">
+                                                    <i class="ri-more-fill"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background: black;
+                                                    color: white;">
+                                                    <a class="dropdown-item" href="{% url 'core:noteView' note.id %}" style="font-size: 14px;">View</a>
+                                                    <a class="dropdown-item" href="{% url 'core:deleteNote' note.id folder.id %}" style="font-size: 14px;">Delete</a>
+                                                    <a class="dropdown-item" href="{% url 'core:addFavourite' note.id folder.id %}" style="font-size: 14px;">Favorite</a>
+                                                    <a class="dropdown-item" href="{% url 'core:downloadPdf' note.id %}" style="font-size: 14px;">Download Pdf</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="{% url 'core:noteView' note.id %}">
+                                        <div class="card-body rounded">
+                                            <h4 class="card-title">{{note.note_title}}</h4>
+                                            <p class="mb-3 card-description short">{{note.note_content.html | truncatechars:70 | safe}}</p>
+                                            <p class="text-underline ellipsis-text short">
+                                                Https://Dribble.com/Shots/6387620</p>
+                                        </div>
+                                    </a>
+                                    <div class="card-footer">
+                                        <div class="d-flex align-items-center justify-content-between note-text note-text-success">
+
+                                            <span> <a href="#" class="">Share on <i
+                                                        class="fa fa-share font-size-20"></i></a></span>
+                                            <span> <a href="#" class=""><i
+                                                        class="fa fa-linkedin font-size-20"></i></a></span>
+                                            <span> <a href="#" class=""><i
+                                                        class="fa fa-whatsapp font-size-20"></i></a></span>
+                                            <span> <a href="#" class=""><i
+                                                        class="fa fa-telegram font-size-20"></i></a></span>
+
+                                        </div>
+                                        <br>
+                                        <a href="#" class=""><i class="font-size-25"></i>Created On &nbsp;&nbsp;
+                                            {{note.created_at}}</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".sidebarBtn");
+        sidebarBtn.onclick = function() {
+            sidebar.classList.toggle("active");
+            if (sidebar.classList.contains("active")) {
+                sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+            } else
+                sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+        }
+    </script>
+
+</section>
+
+<!-- endDashBoard  -->
+{% endblock %} {% block script %}
+<!-- Template Main JS File -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+
+{% endblock %}

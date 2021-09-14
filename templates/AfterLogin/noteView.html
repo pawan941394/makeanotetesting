@@ -1,0 +1,266 @@
+{% extends 'snippits/base.html' %} {% load static %} {% block title %}
+<title>Notes Website</title>
+<meta content="" name="description">
+<meta content="" name="keywords"> {% endblock %} {% block head %}
+
+<!-- DashBoar  -->
+
+<link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="{% static 'afterLogin/css/dashBoardIndex.css' %}" />
+<link rel="stylesheet" href="{% static 'css/modal.css' %}" />
+<link rel="stylesheet" href="{% static 'afterLogin/css/AddNote.css' %}">
+<link rel="stylesheet" href="https://cdn.quilljs.com/1.0.0/quill.snow.css">
+<link rel="stylesheet" href="{% static 'afterLogin/css/textEditor.css' %}">
+<script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
+<script src="{% static 'afterLogin/js/textEditor.js' %}"></script>
+
+<!-- notes add  -->
+
+
+<style>
+    @media only screen and (max-width: 825px) {
+        .dashboardIndex {
+            margin-top: -10%;
+        }
+    }
+    
+    @media only screen and (max-width: 695px) {
+        .dashboardIndex {
+            margin-top: -14%;
+        }
+    }
+</style>
+{% endblock %} {% block content %} {% for message in messages %}
+<section class="loginModal" style="    position: absolute;">
+    <div class="container text-center">
+        <div class="costumModal">
+            <div id="costumModal42" class="modal" data-easein="bounce" tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <style>
+                        .modal-content {
+                            border: 1px solid gray;
+                            background: black;
+                            border-radius: 12px;
+                            box-shadow: 0px 0px 11px #f1f1f1;
+                        }
+                        
+                        .modal-header {
+                            border-bottom: none;
+                        }
+                    </style>
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">
+                                ×
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+                            <p style="color: #ff8d00;">{{message}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<button href="#costumModal42" role="button" data-toggle="modal" style="display: none;" id="alertButton">alert</button>
+
+<script>
+    window.onload = function() {
+        document.getElementById('alertButton').click();
+    }
+</script>
+{% endfor %} {% include 'snippits/deleteaccount.html' %}
+
+
+
+<!-- ======= Header ======= -->
+<section class="loginModal">
+    <div class="container text-center">
+        <div class="costumModal">
+            <div id="costumModal30" class="modal" data-easein="bounce" tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">
+                                ×
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Conguration (name) you have successfully logged in</p>
+                            <div class="social-icons">
+                                <a href=""><i class="fa fa-share text-white" style="font-size: 15px">&nbsp;Share
+                                        this with your friend&nbsp;</i></a>
+                                <a class="social-icon social-icon--twitter">
+                                    <i class="fa fa-twitter"></i>
+                                    <div class="tooltip">Twitter</div>
+                                </a>
+
+                                <a class="social-icon social-icon--instagram">
+                                    <i class="fa fa-instagram"></i>
+                                    <div class="tooltip">Instagram</div>
+                                </a>
+                                <a class="social-icon social-icon--linkedin">
+                                    <i class="fa fa-linkedin"></i>
+                                    <div class="tooltip">LinkedIn</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-warning text-white m-3" data-dismiss="modal" aria-hidden="true">
+                                Cancel
+                            </button>
+                            <button class="btn btn-danger text-white m-3" data-dismiss="modal" aria-hidden="true">
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="saveModal">
+        <div id="costumModal10" class="modal" data-easein="bounceIn" tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">
+                            ×
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            If you want to save then Please login or Signup </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-warning text-white m-3" data-dismiss="modal" aria-hidden="true">
+                            Login
+                        </button>
+                        <button class="btn btn-danger text-white m-3" data-dismiss="modal" aria-hidden="true">
+                            Signup
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DashBoard -->
+<section class="dashboardIndex">
+    <style>
+        .shownotecode {
+            border: 1px solid gray;
+            border-radius: 12px;
+            padding: 45px;
+            margin-top: 31px;
+        }
+        
+        .form-control {
+            color: whitesmoke;
+            background-color: transparent;
+            padding: 17px;
+            margin-top: 34px;
+        }
+        
+        .form-control:focus {
+            color: whitesmoke;
+            background-color: transparent;
+            padding: 17px;
+            margin-top: 34px;
+            height: auto;
+            outline: none;
+            border: none;
+        }
+        
+        textarea.form-control {
+            height: auto;
+            outline: none;
+            border: none;
+        }
+    </style>
+    {% include 'snippits/dashboardSidebar.html' %}
+
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class="bx bx-menu sidebarBtn"></i>
+                <span class="dashboard text-white">Dashboard</span>
+            </div>
+        </nav>
+
+        <!-- <div class="container" style="color: white;">
+            {{note.note_title}}
+            <br> {{note.note_content | safe}}
+            <br> Created at - {{note.created_at}}
+        </div> -->
+        <div class="container shownotecode">
+
+            <div class="form-group">
+                <h2 style="    display: flex;
+                margin: auto;
+                justify-content: center;"> {{note.note_title}}</h2>
+            </div>
+            <div class="form-group">
+                <h5> Created at - {{note.created_at}}</h5>
+            </div>
+
+            <div class="form-group" style="color: whitesmoke;">
+                {{note.note_content.html | safe}} </div>
+                {% if note.image %}
+            <div class="form-group">
+                <img src="{{note.image.url}}" alt="" class="img-fluid" style="    width: 54%;
+                margin: auto;
+                display: flex;
+                margin-top: 28px;"> </div>
+                {% endif %}
+                {% if note.video %}
+            <div class="form-group">
+                <video src="{{note.video.url}}" alt="" class="img-fluid" style="    width: 54%;
+            margin: auto;
+            display: flex;
+            margin-top: 28px;" frameborder="0" controls></video></div>
+                {% endif %}
+
+
+            <div class="form-group mt-4" style="    display: flex;
+            margin: auto;
+            justify-content: center;">
+                <button class="btn btn-warning mx-5" style="color: whitesmoke;"> 
+                    
+                    <a href="{% url 'core:downloadPdf' note.id %}">   Make a Pdf </a>
+                  </button>
+                <!-- end container-fluid -->
+            </div>
+        </div>
+
+        <!-- end container-fluid -->
+
+    </section>
+
+    <script>
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".sidebarBtn");
+        sidebarBtn.onclick = function() {
+            sidebar.classList.toggle("active");
+            if (sidebar.classList.contains("active")) {
+                sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+            } else sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+        };
+    </script>
+</section>
+
+<!-- endDashBoard  -->
+{% endblock %} {% block script %}
+<!-- Template Main JS File -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+
+
+<!-- Initialize Quill editor -->
+{% endblock %}

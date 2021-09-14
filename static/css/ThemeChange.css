@@ -1,0 +1,8 @@
+#BlackTheme a svg {
+    display: none;
+}
+
+#WhiteTheme svg,
+#BlackTheme svg {
+    cursor: pointer;
+}

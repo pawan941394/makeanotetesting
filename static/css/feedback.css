@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.feed {
+    display: grid;
+    height: 100%;
+    place-items: center;
+    text-align: center;
+    background: #000;
+}
+
+.feed .container {
+    position: relative;
+    width: 400px;
+    background: #111;
+    padding: 20px 30px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 95px;
+}
+
+.feed .container .post {
+    display: none;
+}
+
+.feed .container .text {
+    font-size: 25px;
+    color: #666;
+    font-weight: 500;
+}
+
+.feed .container .edit {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 16px;
+    color: #666;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.feed .container .edit:hover {
+    text-decoration: underline;
+}
+
+.feed .container .star-widget input {
+    display: none;
+}
+
+.feed .star-widget label {
+    font-size: 40px;
+    color: #444;
+    padding: 10px;
+    float: right;
+    transition: all 0.2s ease;
+}
+
+.feed input:not(:checked)~label:hover,
+.feed input:not(:checked)~label:hover~label {
+    color: #fd4;
+}
+
+.feed input:checked~label {
+    color: #fd4;
+}
+
+.feed input#rate-5:checked~label {
+    color: #fe7;
+    text-shadow: 0 0 20px #952;
+}
+
+.feed #rate-1:checked~form header:before {
+    content: "I just hate it  😈";
+}
+
+.feed #rate-2:checked~form header:before {
+    content: "I don't like it 😖";
+}
+
+.feed #rate-3:checked~form header:before {
+    content: "It is awesome 😋";
+}
+
+.feed #rate-4:checked~form header:before {
+    content: "I just like it 😎";
+}
+
+.feed #rate-5:checked~form header:before {
+    content: "I just love it 😍";
+}
+
+.feed .container form {
+    display: none;
+}
+
+.feed input:checked~form {
+    display: block;
+}
+
+.feed form header {
+    width: 100%;
+    font-size: 25px;
+    color: #fe7;
+    font-weight: 500;
+    margin: 5px 0 20px 0;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.feed form .textarea {
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.feed form .textarea textarea {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #eee;
+    border: 1px solid #333;
+    background: transparent;
+    padding: 10px;
+    font-size: 17px;
+    resize: none;
+}
+
+.feed .textarea textarea:focus {
+    border-color: #444;
+}
+
+.feed form .btn {
+    height: 45px;
+    width: 100%;
+    margin: 15px 0;
+}
+
+.feed form .btn button {
+    height: 100%;
+    width: 100%;
+    border: 1px solid #444;
+    outline: none;
+    background: transparent;
+    color: whitesmoke;
+    font-size: 17px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.feed form .btn button:hover {
+    background: #1b1b1b;
+}
+
+@media only screen and (max-width:435px) {
+    .feed .container {
+        width: 78%;
+        padding: 20px 6px;
+    }
+    .feed .container h2 {
+        font-size: 16px !important;
+    }
+    .feed .star-widget label {
+        font-size: 27px;
+    }
+}

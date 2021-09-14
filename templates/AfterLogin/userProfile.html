@@ -1,0 +1,236 @@
+{% extends 'snippits/base.html' %} {% load static %} {% block title %}
+<title>Notes Website</title>
+<meta content="" name="description">
+<meta content="" name="keywords"> {% endblock %} {% block head %}
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="{% static 'afterLogin/css/dashBoardIndex.css' %}">
+<link rel="stylesheet" href="{% static 'afterLogin/css/allnotes.css' %}">
+<link rel="stylesheet" href="{% static 'afterLogin/css/profile.css' %}">
+<link rel="stylesheet" href="{% static 'css/modal.css' %}"> {% endblock %} {% block content %}
+
+<!-- DashBoar  -->
+{% for message in messages %}
+<section class="loginModal" style="    position: absolute;">
+    <div class="container text-center">
+        <div class="costumModal">
+            <div id="costumModal42" class="modal" data-easein="bounce" tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <style>
+                        .modal-content {
+                            border: 1px solid gray;
+                            background: black;
+                            border-radius: 12px;
+                            box-shadow: 0px 0px 11px #f1f1f1;
+                        }
+                        
+                        .modal-header {
+                            border-bottom: none;
+                        }
+                    </style>
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">
+                                ×
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+                            <p style="color: #ff8d00;">{{message}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<button href="#costumModal42" role="button" data-toggle="modal" style="display: none;" id="alertButton">alert</button>
+
+<script>
+    window.onload = function() {
+        document.getElementById('alertButton').click();
+    }
+</script>
+{% endfor %}
+
+<section class="loginModal">
+    <div class="container text-center">
+        <div class="costumModal">
+
+            <div id="costumModal30" class="modal" data-easein="bounce" tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">
+                                ×
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+
+                            <p>
+                                Are you sure you want to delete your account ? </p>
+                            <div class="social-icons">
+                                <a href=""><i class="fa fa-share text-white" style="font-size: 15px;">&nbsp;Share this
+                                        with your friend&nbsp;</i></a>
+                                <a class="social-icon social-icon--twitter">
+                                    <i class="fa fa-twitter"></i>
+                                    <div class="tooltip">Twitter</div>
+                                </a>
+
+                                <a class="social-icon social-icon--instagram">
+                                    <i class="fa fa-instagram"></i>
+                                    <div class="tooltip">Instagram</div>
+                                </a>
+                                <a class="social-icon social-icon--linkedin">
+                                    <i class="fa fa-linkedin"></i>
+                                    <div class="tooltip">LinkedIn</div>
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-warning text-white m-3" data-dismiss="modal" aria-hidden="true">
+                                Cancel
+                            </button>
+                            <button class="btn btn-danger text-white m-3" onclick="location.href='{% url 'core:deleteAccount' %}'" data-dismiss="modal" aria-hidden="true">
+                                Delete
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<!-- DashBoard -->
+<section class="dashboardIndex">
+    {% include 'snippits/dashboardSidebar.html' %}
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn'></i>
+                <span class="dashboard text-white">Profile</span>
+            </div>
+
+        </nav>
+
+        <div class="home-content">
+
+
+
+
+            <section class="contactUsPage">
+                <div class="container">
+                    <div class="content">
+                        <style>
+                            form input {
+                                margin-right: 2px !important;
+                                width: 100%;
+                            }
+                            
+                            form label {
+                                display: block;
+                                margin: 12px;
+                            }
+                            
+                            .contactUsPage .content form {
+                                width: 40%;
+                                margin-right: 30px;
+                                margin-top: -86px;
+                            }
+                            
+                            .contactUsPage .content .image-box {
+                                max-width: 32%;
+                                display: contents;
+                                display: flex;
+                                flex-direction: column;
+                                margin: auto;
+                                margin-top: 0%;
+                            }
+                        </style>
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <br>
+                            <div class="topic">{{request.user}} Profile</div>
+                            <br> {{form.as_p}} {{profile_form.as_p}}
+                            <!-- 
+                            <div> <label style="    margin-top: 9%;">Name</label>
+                                <div class="input-box">
+                                    <input type="text" required placeholder="{{request.user.get_full_name}}" name="name">
+
+                                </div>
+                            </div>
+                            <div> <label>Email</label>
+                                <div class="input-box">
+                                    <input type="text" required placeholder="{{request.user.email}}" name='email'>
+
+                                </div>
+                            </div>
+                            <div> <label>Phone</label>
+                                <div class="input-box">
+                                    <input type="text" required placeholder="{{profile.phone}}" name='phone'>
+
+                                </div>
+                            </div>
+                            <div> <label>Linkedin</label>
+                                <div class="input-box">
+                                    <input type="text" required placeholder="{{profile.linkedin}}" name='Linkedin'>
+
+                                </div>
+                            </div>
+                            <div> <label>Instagram</label>
+                                <div class="input-box">
+                                    <input type="text" required placeholder="{{profile.instagram}}" name='Instagram'>
+
+                                </div>
+                            </div> -->
+                            <!-- <div style="margin-top: 15px;
+                                ">
+                                <h6>Update Profile</h6>
+                                <input type="file" required placeholder="{{request.user.first_name}}" name=profile>
+                            </div> -->
+
+
+                            <div class="input-box">
+                                <input type="submit" value="Update Profile">
+                            </div>
+                        </form>
+                        <div class="image-box">
+                            <img src="{{ profile.image.url }}" alt="">
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- end container-fluid -->
+
+        </div>
+    </section>
+
+    <script>
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".sidebarBtn");
+        sidebarBtn.onclick = function() {
+            sidebar.classList.toggle("active");
+            if (sidebar.classList.contains("active")) {
+                sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+            } else
+                sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+        }
+    </script>
+
+</section>
+
+<!-- endDashBoard  -->
+{% endblock %} {% block script %}
+<!-- Template Main JS File -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+
+{% endblock %}

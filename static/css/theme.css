@@ -1,0 +1,322 @@
+body {
+    background-color: whitesmoke!important;
+}
+
+#header.header-scrolled,
+#header.header-inner-pages {
+    background: #fff !important;
+}
+
+.TeamMembers {
+    background-color: whitesmoke !important;
+}
+
+.icon-block {
+    background: transparent;
+}
+
+.pricing .box {
+    background: transparent;
+}
+
+.TeamMembers .member {
+    background: transparent;
+    border: 1px solid;
+}
+
+.contact .info {
+    width: 100%;
+    background: transparent;
+    border: 1px solid;
+    padding: 13px;
+    border-radius: 12px;
+}
+
+.contact .php-email-form {
+    width: 100%;
+    background: transparent;
+    border: 1px solid;
+    padding: 16px;
+}
+
+.contact .php-email-form input {
+    height: 44px;
+    background: transparent;
+    border-radius: 8px;
+    color: black;
+}
+
+.contact .php-email-form textarea {
+    padding: 10px 12px;
+    background: transparent;
+    color: black;
+}
+
+#footer .footer-top {
+    background: whitesmoke;
+    color: black !important;
+}
+
+#footer {
+    color: whitesmoke;
+    border-top: 0.5px solid;
+}
+
+#header.header-scrolled,
+#header.header-inner-pages {
+    background: whitesmoke;
+}
+
+#footer .footer-newsletter form input[type="email"] {
+    color: black;
+    background: whitesmoke;
+    outline: none;
+}
+
+#header.header-scrolled,
+#header.header-inner-pages {
+    background: whitesmoke !important;
+}
+
+#header.header-scrolled .logo a,
+#header.header-inner-pages .logo a {
+    color: black;
+}
+
+.header-scrolled .nav-menu>ul>li>a,
+.header-inner-pages .nav-menu>ul>li>a {
+    color: black;
+}
+
+.nav-menu .drop-down ul {
+    background: whitesmoke;
+}
+
+.nav-menu .drop-down ul a {
+    color: black;
+}
+
+.section-title h2 {
+    background: whitesmoke;
+    color: black;
+    border: 1px solid;
+}
+
+#footer .footer-top .footer-links ul a:hover {
+    text-decoration: none;
+    color: #e43c5c;
+}
+
+#footer .footer-top .footer-links ul i {
+    padding-right: 2px;
+    color: black;
+    font-size: 18px;
+    line-height: 1;
+}
+
+#footer .footer-top h4 {
+    color: black;
+}
+
+.pricing .recommended .btn-buy {
+    background: whitesmoke;
+    color: black;
+}
+
+.contact .php-email-form button[type="submit"] {
+    background: whitesmoke;
+    color: black;
+    border: 1px solid #e43c5c;
+}
+
+.icon-block {
+    background: WhiteSmoke !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: black !important;
+}
+
+p {
+    color: black;
+}
+
+.Questions .Questions-list a.collapsed {
+    color: black;
+}
+
+#HomeMainPage .HomeMainHeading {
+    background: whitesmoke;
+}
+
+.nav-menu a {
+    color: black;
+}
+
+#header .logo a {
+    color: black;
+}
+
+#HomeMainPage .btn-get-started {
+    font-weight: 900;
+    color: black;
+    border: 3px solid black;
+}
+
+.TopToButtom i {
+    border-radius: 50px;
+    background: black;
+}
+
+.mobile-nav {
+    background: white;
+}
+
+@media only screen and (max-width:995px) {
+    .mobile-nav a {
+        color: black !important;
+    }
+}
+
+
+/* signup page  */
+
+.nav-menu a {
+    color: black !important;
+}
+
+#header .logo a {
+    color: black;
+}
+
+
+/* dashboard.html */
+
+.sidebar .nav-links li a .links_name {
+    color: black !important;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.sidebar .nav-links li i {
+    color: black !important;
+}
+
+.sidebar .nav-links li a.active {
+    background: silver !important;
+}
+
+.sidebar .nav-links li a:hover {
+    background: silver !important;
+}
+
+.home-section {
+    background: transparent !important;
+}
+
+nav .sidebar-button i {
+    color: black !important;
+    font-weight: 800 !important;
+}
+
+.text-white {
+    color: gray !important;
+}
+
+.overview-boxes .box-topic {
+    font-weight: 500;
+    color: black !important;
+}
+
+.home-content .box .number {
+    font-weight: 500;
+    color: black !important;
+}
+
+.overview-boxes .box {
+    border: 1px solid gray !important;
+    color: black !important;
+}
+
+.table thead th {
+    border-bottom: 2px solid gray !important;
+    border-top: none;
+    color: black !important;
+}
+
+.AllNotesTable a {
+    color: black !important;
+    font-weight: 600;
+}
+
+.table td,
+.table th {
+    border-top: 1px solid gray !important;
+    color: black !important;
+    border-top: none;
+}
+
+.sidebar .logo-details .logo_name {
+    color: black !important;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+
+/* profile.html  */
+
+.contactUsPage .content .input-box input:focus,
+.contactUsPage .content .input-box input:valid {
+    border-color: #ba24c2;
+    background-color: transparent;
+    color: black !important;
+}
+
+.contactUsPage .content .input-box input[type="submit"] {
+    color: #fff !important;
+}
+
+.contactUsPage {
+    background: white !important;
+}
+
+.home-section {
+    background: white !important;
+}
+
+.dashboardIndex a {
+    color: darkslategray !important;
+    background: white !important;
+}
+
+.dropdown-toggle {
+    white-space: nowrap;
+    color: black !important;
+}
+
+.dropdown-menu {
+    background: white !important;
+    color: black !important;
+}
+
+.myfieldclass {
+    background: transparent;
+    outline: none;
+    border: 1px solid gray;
+    padding: 9px;
+    border-radius: 10px;
+    margin-left: 13px;
+    color: whitesmoke;
+}
+
+.myfieldclassvideo {
+    margin: 16px;
+    background: transparent;
+    border: 1px solid gray;
+    color: violet;
+}

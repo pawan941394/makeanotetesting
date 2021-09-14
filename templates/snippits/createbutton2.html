@@ -1,0 +1,30 @@
+<div class="overview-boxes">
+    <div class="box">
+        <div class="right-side">
+            <div class="box-topic">All Folders</div>
+            <div class="number">{{folderNo}}</div>
+
+        </div>
+        <a href=""><i class='fa fa-book cart'></i></a>
+    </div>
+    <div class="box">
+        <div class="right-side">
+            <div class="box-topic">Add Notes</div>
+            <div class="number">{{filesNo}}</div>
+
+        </div>
+        <a href="{% url 'core:dashboard' %}">
+            <a href="{% url 'core:dashboard' %}"><i class='fa fa-plus cart three'></i></a></a>
+    </div>
+    <div class="box">
+        <div class="right-side">
+            <div class="box-topic">Favorite Notes</div>
+            <div class="number">{{favNo}}</div>
+
+        </div>
+        <a href="{% url 'core:favourite' %}">
+
+            <i class='fa fa-heart-o cart two'></i>
+        </a>
+    </div>
+</div>

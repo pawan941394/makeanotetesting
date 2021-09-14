@@ -1,0 +1,367 @@
+{% extends 'snippits/base.html' %} {% load static %} {% block title %}
+<title>Notes Website</title>
+<meta content="" name="description">
+<meta content="" name="keywords"> {% endblock %} {% block head %}
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="{% static 'afterLogin/css/dashBoardIndex.css' %}">
+<link rel="stylesheet" href="{% static 'afterLogin/css/allnotes.css' %}">
+<link rel="stylesheet" href="{% static 'afterLogin/css/AllnotesTable.css' %}">
+<link rel="stylesheet" href="{% static 'css/modal.css' %}">
+<link rel="stylesheet" href="{% static 'afterLogin/css/dashboardMain.css' %}"> {% endblock %} {% block content %}
+<!-- DashBoar  -->
+{% include 'snippits/deleteaccount.html' %}
+{% for message in messages %}
+<section class="loginModal" style="    position: absolute;">
+    <div class="container text-center">
+        <div class="costumModal">
+            <div id="costumModal42" class="modal" data-easein="bounce" tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <style>
+                        .modal-content {
+                            border: 1px solid gray;
+                            background: black;
+                            border-radius: 12px;
+                            box-shadow: 0px 0px 11px #f1f1f1;
+                        }
+                        
+                        .modal-header {
+                            border-bottom: none;
+                        }
+                    </style>
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">
+                                ×
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+                            <p style="color: #ff8d00;">{{message}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<button href="#costumModal42" role="button" data-toggle="modal" style="display: none;" id="alertButton">alert</button>
+
+<script>
+    window.onload = function() {
+        document.getElementById('alertButton').click();
+    }
+</script>
+{% endfor %}
+
+<section class="loginModal folder_wali_Modal" style="    position: absolute;">
+    <div class="container text-center">
+        <div class="costumModal">
+
+            <div id="costumModal31" class="modal" data-easein="bounce" tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">
+                                ×
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+                            <form action="{% url 'core:folder_create' title.id %}" method="POST">
+                                {% csrf_token %}
+
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1" class="text-white">Create Folder</label>
+                                    <input type="text" class="form-control text-white" id="exampleInputPassword1" style="background-color: transparent;" name="folder_name">
+                                </div>
+
+                                <button type="submit" class="btn btn-warning">Create</button>
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<section class="loginModal folder_wali_Modal" style="    position: absolute;">
+    <div class="container text-center">
+        <div class="costumModal">
+
+            <div id="costumModal3457" class="modal" data-easein="bounce" tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">
+                                ×
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+                            <form action="{% url 'core:folder_create' title.id %}" method="POST">
+                                {% csrf_token %}
+
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1" class="text-white">Create Directory</label>
+                                    <input type="text" class="form-control text-white" id="exampleInputPassword1" style="background-color: transparent;" name="folder_name">
+                                </div>
+
+                                <button type="submit" class="btn btn-warning">Create</button>
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<section class="loginModal">
+    <div class="container text-center">
+        <div class="costumModal">
+
+            <div id="costumModal3546540" class="modal" data-easein="bounce" tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">
+                                ×
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+
+                            <p>
+                                Are you sure you want to delete your account ? </p>
+                            <div class="social-icons">
+                                <a href=""><i class="fa fa-share text-white" style="font-size: 15px;">&nbsp;Share this
+                                        with your friend&nbsp;</i></a>
+                                <a class="social-icon social-icon--twitter">
+                                    <i class="fa fa-twitter"></i>
+                                    <div class="tooltip">Twitter</div>
+                                </a>
+
+                                <a class="social-icon social-icon--instagram">
+                                    <i class="fa fa-instagram"></i>
+                                    <div class="tooltip">Instagram</div>
+                                </a>
+                                <a class="social-icon social-icon--linkedin">
+                                    <i class="fa fa-linkedin"></i>
+                                    <div class="tooltip">LinkedIn</div>
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-warning text-white m-3" data-dismiss="modal" aria-hidden="true">
+                                Cancel
+                            </button>
+                            <button class="btn btn-danger text-white m-3" onclick="location.href='{% url 'core:deleteAccount' %}'" data-dismiss="modal" aria-hidden="true">
+                                Delete
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<section class="loginModal">
+    <div class="container text-center">
+        <div class="costumModal">
+
+            <div id="costumModal3546540" class="modal" data-easein="bounce" tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">
+                                ×
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+
+                            <p>
+                                Are you sure you want to delete your account ? </p>
+                            <div class="social-icons">
+                                <a href=""><i class="fa fa-share text-white" style="font-size: 15px;">&nbsp;Share this
+                                        with your friend&nbsp;</i></a>
+                                <a class="social-icon social-icon--twitter">
+                                    <i class="fa fa-twitter"></i>
+                                    <div class="tooltip">Twitter</div>
+                                </a>
+
+                                <a class="social-icon social-icon--instagram">
+                                    <i class="fa fa-instagram"></i>
+                                    <div class="tooltip">Instagram</div>
+                                </a>
+                                <a class="social-icon social-icon--linkedin">
+                                    <i class="fa fa-linkedin"></i>
+                                    <div class="tooltip">LinkedIn</div>
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-warning text-white m-3" data-dismiss="modal" aria-hidden="true">
+                                Cancel
+                            </button>
+                            <button class="btn btn-danger text-white m-3" onclick="location.href='{% url 'core:deleteAccount' %}'" data-dismiss="modal" aria-hidden="true">
+                                Delete
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<!-- DashBoard -->
+<section class="dashboardIndex">
+    {% include 'snippits/dashboardSidebar.html' %}
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn'></i>
+                <span class="dashboard text-white">Folders</span>
+            </div>
+
+        </nav>
+
+        <div class="home-content">
+            <div class="overview-boxes">
+
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic" href="#costumModal31" role="button" data-toggle="modal">Add folder</div>
+                        <div class="number">&nbsp;&nbsp;{{folderNo}}</div>
+                    </div>
+                    <a href="">
+                        <a href="#costumModal31" role="button" data-toggle="modal"><i class='fa fa-plus cart three'></i></a></a>
+                </div>
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic" role="button" data-toggle="">Add Notes</div>
+                        <div class="number">&nbsp;&nbsp;{{filesNo}}</div>
+                    </div>
+                    <a href="">
+                        <a href="" role="button" data-toggle="modal"><i class='fa fa-plus cart three'></i></a></a>
+                </div>
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">Fav Notes</div>
+                        <div class="number">&nbsp;&nbsp;{{favNo}}</div>
+                    </div>
+                    <a href="{% url 'core:favourite' %}">
+
+                        <i class='fa fa-heart-o cart two'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="note-content tab-content">
+                <div id="note1" class="tab-pane fade active show">
+
+                    <div class="icon active animate__animated animate__fadeIn i-list AllNotesTable">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="table-responsive">
+                                    <table class="table  tbl-server-info">
+                                        <thead>
+                                            <tr class="ligth">
+                                                <th class="w-50" scope="col">Title</th>
+                                                <!-- <th scope="col">Share</th> -->
+                                                <th scope="col">Created At</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <ul class="Questions-list">
+                                                {% for folder in folders %}
+                                                <tr>
+                                                    <td>
+                                                        <h4 class="mb-2">
+                                                            <li style="    list-style: none;">
+                                                                <a data-toggle="collapse" class="" href="#Questions1">{{folder.name}}<i class="icofont-simple-up"></i></a>
+                                                                <div id="Questions1" class="collapse" data-parent=".Questions-list">
+
+                                                                    <p>
+                                                                        <a href="{% url 'core:dashboardNotesShow' folder.id %}"><button
+                                                                                class="btn btn-small signUpButton"
+                                                                                style="
+                                                                                background: #ded6d8;
+                                                                                font-weight: 800;"><i
+                                                                                    class="fa fa-sticky-note"></i> {{folder.files_inside_folder}}
+                                                                                Notes</button></a>
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+
+                                                        </h4>
+                                                    </td>
+                                                    <!-- <td>
+                                                        <i class="las la-user-friends mr-2 font-size-20"></i> 03 share
+                                                    </td> -->
+                                                    <td>Dec 20</td>
+                                                    <td>
+                                                        <div>
+                                                            <a href="{% url 'core:folderDelete' folder.id title.id %}" class="badge badge-danger" data-extra-toggle="delete" data-closest-elem="tr"><i
+                                                                    class="fa fa-trash mr-0"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                            </ul>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".sidebarBtn");
+        sidebarBtn.onclick = function() {
+            sidebar.classList.toggle("active");
+            if (sidebar.classList.contains("active")) {
+                sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+            } else
+                sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+        }
+    </script>
+
+</section>
+
+<!-- endDashBoard  -->
+{% endblock %} {% block script %}
+<!-- Template Main JS File -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+
+{% endblock %}

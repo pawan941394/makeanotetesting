@@ -1,0 +1,17 @@
+    .dashboardIndex {
+        margin-top: -21%;
+    }
+    
+    @media only screen and (max-width:1120px) {
+        .dashboardIndex {
+            margin-top: -322px;
+        }
+    }
+    
+    @media (max-width: 450px) {
+        .home-section {
+            width: 98% !important;
+            left: 0px;
+            margin: auto;
+        }
+    }

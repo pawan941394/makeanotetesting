@@ -1,0 +1,79 @@
+<!-- ======= Footer ======= -->
+<footer id="footer">
+
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h3>Notes</h3>
+                    <p>
+                        {{contactDetails.address | safe}} <br><br>
+                        <strong>Phone:</strong> {{contactDetails.phone}}<br>
+                        <strong>Email:</strong> {{contactDetails.email}}<br>
+                    </p>
+                </div>
+
+                <div class="col-lg-2 col-md-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{% url 'core:home' %}">Home</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{% url 'core:aboutUs' %}">About us</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{% url 'core:home' %}">Services</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{% url 'core:home' %}">Terms of service</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{% url 'core:home' %}">Privacy policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-6 footer-newsletter">
+                    <h4>Join Our Newsletter</h4>
+                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                    <form action="{% url 'core:home' %}" method="post">
+                        {% csrf_token %}
+                        <input type="email" name="email">
+                        <input type="submit" value="Subscribe">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container d-md-flex py-4" style="    margin: auto;
+    justify-content: center;">
+
+        <div class="social-icons">
+
+
+            <a class="social-icon social-icon--twitter" href="{{contactDetails.twitter}}">
+                <i class="fa fa-twitter"></i>
+                <div class="tooltip">Twitter</div>
+            </a>
+
+            <a class="social-icon social-icon--instagram" href="{{contactDetails.instagram}}">
+                <i class="fa fa-instagram"></i>
+                <div class="tooltip">Instagram</div>
+            </a>
+            <a class="social-icon social-icon--linkedin" href="{{contactDetails.linkedin}}">
+                <i class="fa fa-linkedin"></i>
+                <div class="tooltip">LinkedIn</div>
+            </a>
+            <a class="social-icon social-icon--facebook" href="{{contactDetails.facebook}}">
+                <i class="fa fa-facebook"></i>
+                <div class="tooltip">Facebook</div>
+            </a>
+        </div>
+    </div>
+</footer>
+<!-- End Footer -->

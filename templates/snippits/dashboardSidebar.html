@@ -1,0 +1,97 @@
+{% load static %}
+<div class="sidebar">
+    <div class="logo-details">
+        {% if request.user.is_authenticated %}
+        <i><img src="{{ profile.image.url }}" alt="" srcset=""></i>
+        <!-- after login  -->
+        <span class="logo_name">{{request.user.username}}</span>
+        <!-- before login  -->
+        {% else %}
+        <i><img src="../../static/img/team/team-1.jpg" alt="" srcset=""></i>
+        <span class="logo_name"><button class="btn btn-sm btn" style="    margin-top: 7%;
+            background: #ded6d8;
+            font-weight: 900;"  > <a  href="{% url 'core:register' %}" >Register</a> </button>
+        </span> {% endif %}
+    </div>
+    <ul class="nav-links">
+        <li>
+            <a href="{% url 'core:dashboard' %}" class="{% block dashboard %} {% endblock %}">
+                <i class='bx bx-grid-alt'></i>
+                <span class="links_name">Dashboard</span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'core:notesShow' %}">
+                <i class='bx bx-file'></i>
+                <span class="links_name">Saved Notes</span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'core:checklist' %}">
+                <i class='bx bx-plus'></i>
+                <span class="links_name">Saved Checklist</span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'core:favourite' %}">
+                <i class='bx bx-heart'></i>
+                <span class="links_name">Favorites</span>
+            </a>
+        </li>
+        <!-- <li>
+            <a href="{% url 'core:homeNotes' %}">
+                <i class='bx bx-plus'></i>
+                <span class="links_name">Add Notes</span>
+            </a>
+        </li> -->
+
+
+        <li>
+            <a href="{% url 'core:profile' %}">
+                <i class='bx bx-user'></i>
+                <span class="links_name">Edit Profile</span>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <i class='bx bx-user'></i>
+                <span class="links_name">FAQ</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'core:passwordChange' %}">
+                <i class='fa fa-lock'></i>
+                <span class="links_name">Change Password </span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'core:privacyPolicy' %}">
+                <i class='bx bx-message'></i>
+                <span class="links_name">Privacy Policy</span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'core:contact' %}">
+                <i class='bx bx-phone'></i>
+                <span class="links_name">Contact us</span>
+            </a>
+        </li>
+        {% if request.user.is_authenticated %}
+        <li>
+            <a href="#costumModal30" role="button" data-toggle="modal">
+                <i class='bx bx-user'></i>
+                <span class="links_name">Delete Account</span>
+            </a>
+        </li>
+
+
+
+        <li class="log_out">
+            <a href="{% url 'core:logout' %}">
+                <i class='bx bx-log-out'></i>
+                <span class="links_name">Log out</span>
+            </a>
+        </li> {% endif %}
+    </ul>
+</div>

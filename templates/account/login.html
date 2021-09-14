@@ -1,0 +1,151 @@
+{% extends 'snippits/base.html' %} {% load socialaccount %} {% load static %} {% block title %}
+<title>Notes Website</title>
+<meta content="" name="description">
+<meta content="" name="keywords"> {% endblock %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="{% static 'css/modal.css' %}"> {% endblock %} {% block content %}
+<!-- login page  -->
+
+{% for message in messages %}
+<section class="loginModal" style="    position: absolute;">
+    <div class="container text-center">
+        <div class="costumModal">
+            <div id="costumModal42" class="modal" data-easein="bounce" tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <style>
+                        .modal-content {
+                            border: 1px solid gray;
+                            background: black;
+                            border-radius: 12px;
+                            box-shadow: 0px 0px 11px #f1f1f1;
+                        }
+                        
+                        .modal-header {
+                            border-bottom: none;
+                        }
+                    </style>
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">
+                                ×
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+                            <p style="color: #ff8d00;">{{message}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<button href="#costumModal42" role="button" data-toggle="modal" style="display: none;" id="alertButton">alert</button>
+
+<script>
+    window.onload = function() {
+        document.getElementById('alertButton').click();
+    }
+</script>
+{% endfor %}
+
+
+<section class="loginModal" style="    position: absolute;">
+    <div class="container text-center">
+        <div class="costumModal">
+
+            <div id="costumModal30" class="modal" data-easein="bounce" tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">
+                                ×
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+
+                            <p>
+                                Conguration you have successfully logged in </p>
+                            <div class="social-icons">
+                                <a href=""><i class="fa fa-share text-white" style="font-size: 15px;">&nbsp;Share this
+                                        with your friend&nbsp;</i></a>
+                                <a class="social-icon social-icon--twitter">
+                                    <i class="fa fa-twitter"></i>
+                                    <div class="tooltip">Twitter</div>
+                                </a>
+
+                                <a class="social-icon social-icon--instagram">
+                                    <i class="fa fa-instagram"></i>
+                                    <div class="tooltip">Instagram</div>
+                                </a>
+                                <a class="social-icon social-icon--linkedin">
+                                    <i class="fa fa-linkedin"></i>
+                                    <div class="tooltip">LinkedIn</div>
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-success text-white" data-dismiss="modal" aria-hidden="true">
+                                Login
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+<form action="{% url 'core:login' %}" method="POST" style="  margin-top: 122px;">
+    <section class="loginPage">
+        <div class="container">
+            <div class="left">
+                <div class="header">
+                    <h2 class="animation a1">Welcome Back</h2>
+                    <h4 class="animation a2">Log in to your account using email and password</h4>
+                </div>
+
+                <div class="form">
+                    {% csrf_token %}
+                    <input type="text" class="form-field animation a3" placeholder="Username or Email" name="username" required>
+                    <input type="password" class="form-field animation a4" placeholder="Password" name="password" required>
+                    <p class="animation a5"><a href="#">Forgot Password</a></p>
+                    <button class="animation a6" type="submit">LOGIN</a></button>
+                    <span class="mt-4"> <a href="#" class="mt-5">Login With</a>
+                    <div class="social-icons mt-3">
+                        <a href="{% provider_login_url 'google' %}" class="social-icon social-icon--twitter">
+                            <i class="fa fa-google"></i>
+                            <div class="tooltip">Google</div>
+                        </a>
+
+
+                    </div>
+                    <div class="mt-3">
+                        <a href="{% url 'core:register' %}">
+                            <h6>Don't have any account ?</h6>
+                        </a>
+                    </div>
+
+                </span>
+                </div>
+            </div>
+            <div class="right"></div>
+        </div>
+    </section>
+    {% endblock %}
+</form>
+
+{% block script %}
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+{% endblock %}

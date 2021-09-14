@@ -1,0 +1,34 @@
+.note-content {
+    max-width: 90% !important;
+    border: 1px solid;
+    margin: auto;
+}
+
+.AllNotesTable p {
+    color: antiquewhite;
+    font-size: 12px;
+    margin: 12px 0px;
+}
+
+.AllNotesTable a {
+    color: white;
+}
+
+.AllNotesTable .icofont-simple-up:before {
+    content: "\eab9";
+    display: none;
+}
+
+.table td,
+.table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+    color: whitesmoke;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    border-top: none;
+}

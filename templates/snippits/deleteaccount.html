@@ -1,0 +1,51 @@
+<section class="loginModal">
+    <div class="container text-center">
+        <div class="costumModal">
+
+            <div id="costumModal30" class="modal" data-easein="bounce" tabindex="-1" role="dialog"
+                aria-labelledby="costumModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">
+                                ×
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure you want to delete your account ?</p>
+                            <div class="social-icons">
+                                <a href=""><i class="fa fa-share text-white" style="font-size: 15px;">&nbsp;Share this
+                                        with your friend&nbsp;</i></a>
+                                <a class="social-icon social-icon--twitter">
+                                    <i class="fa fa-twitter"></i>
+                                    <div class="tooltip">Twitter</div>
+                                </a>
+
+                                <a class="social-icon social-icon--instagram">
+                                    <i class="fa fa-instagram"></i>
+                                    <div class="tooltip">Instagram</div>
+                                </a>
+                                <a class="social-icon social-icon--linkedin">
+                                    <i class="fa fa-linkedin"></i>
+                                    <div class="tooltip">LinkedIn</div>
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-warning text-white m-3" data-dismiss="modal" aria-hidden="true">
+                                Cancel
+                            </button>
+                            <button class="btn btn-danger text-white m-3" onclick="location.href='{% url 'core:deleteAccount' %}'" data-dismiss="modal" aria-hidden="true">
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>

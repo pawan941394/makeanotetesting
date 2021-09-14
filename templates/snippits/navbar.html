@@ -1,0 +1,253 @@
+<!-- ======= Header ======= -->
+{% load static %}
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Pacifico');
+            .textlogo {
+                font-size: 150px;
+                /* transform: rotate(-7deg); */
+                background: linear-gradient(45deg, #a875ec 20%, #ff6b7c 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                line-height: 85px;
+                font-family: 'Pacifico', cursive !important;
+                text-align: center;
+                /* padding: 40px 10px 95px; */
+                filter: drop-shadow(0px 3px 8px rgba(0, 0, 0, 0.5));
+                text-outline: 1px solid black;
+            }
+            
+            .textlogo a {
+                font-family: sans-serif !important;
+            }
+        </style>
+        <h1 class="logo mr-auto textlogo gradient-text"><a href="{% url 'core:home' %}">MAKEaNOTE</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <!-- <li class="active"><a href="index.html">Home</a></li> -->
+                <li><a href="{% url 'core:home' %}">Home</a></li>
+                {% if request.user.is_authenticated %}
+
+                <li class="drop-down">
+                    <a href=""><img src="{{ profile.image.url }}" alt="avatar" srcset="" class="img-fluid" style="    width: 29px;
+                            border-radius: 60px;"></a>
+                    <ul>
+                        <li><a href="{% url 'core:dashboard' %}">Your Notes</a></li>
+                        <li><a href="{% url 'core:favourite' %}">favourite notes</a></li>
+                        <li><a href="{% url 'core:homeNotes' %}">Add notes</a></li>
+                        <li><a href="{% url 'core:profile' %}">My Profile</a></li>
+                        <li><a href="{% url 'core:passwordChange' %}">Password Change</a></li>
+                        <li><a href="{% url 'core:dashboard' %}">Dashboard</a></li>
+                        <li><a href="{% url 'core:logout' %}">Log out</a></li>
+
+                    </ul>
+                </li>
+                {% else %}
+                <li class="drop-down"><a href="">Profile</a>
+                    <ul>
+                        <li><a href="{% url 'core:register' %}">SignUp</a></li>
+                        <li><a href="{% url 'core:login' %}">Login</a></li>
+
+                    </ul>
+                </li>
+                {% endif %}
+
+                <li><a href="{% url 'core:aboutUs' %}">About Us</a></li>
+                <li><a href="{% url 'core:feedbacks' %}">Feedbacks</a></li>
+                <li><a href="{% url 'core:contact' %}"><button class="btn btn-small signUpButton" style="   margin-top: -6%;
+                    background: #ded6d8;
+                    font-weight: 600;">Schedule &nbsp; <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-telephone-outbound" viewBox="0 0 16 16">
+                                <path
+                                    d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5z" />
+                            </svg></button></a></li>
+
+                <li class="drop-down">
+
+                    <a href=""><button class="btn btn-small signUpButton" style="   margin-top: -6%;
+                    background: #ded6d8;
+                    font-weight: 300;">More</button></a>
+                    <ul>
+                        <!-- <li id="WhiteTheme"><a><svg xmlns="http://www.w3.org/2000/svg" id="white"
+                                    onclick="whitefunc(this)" width="25" height="25" fill="currentColor"
+                                    class="bi bi-brightness-high" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+                                </svg></a></li> -->
+                        <!-- <li id="BlackTheme"><a><svg xmlns="http://www.w3.org/2000/svg" id="black"
+                                    onclick="blackfunc(this)" width="25" height="25" fill="currentColor"
+                                    class="bi bi-sun-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+                                </svg></a></li> -->
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Invite 5 friend</a></li>
+                        <li><a href="#">Our Community</a></li>
+                        <li><a href="#">Our Community Programmes</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+
+                    </ul>
+                </li>
+
+
+            </ul>
+
+        </nav>
+        <span> <div class="toggle-switch">
+        <!-- <p>Dark</p> -->
+        <span>
+          <label class="switch">
+              <input id="theme-switch" type="checkbox">
+              <span class="slider round"></span>
+        </label>
+        </span>
+        <!-- <p>Light</p> -->
+    </div>
+    </span>
+    <style>
+         :root {
+            --toggle-light: hsl(230, 22%, 74%);
+            --toggle-dark: linear gradient hsl(210, 78%, 56%) to hsl(146, 68%, 55%);
+        }
+        /* The switch - the box around the slider */
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+        /* Hide default html checkbox */
+        
+        .switch input {
+            opacity: 0;
+        }
+        /* The slider */
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--toggle-light);
+            transition: 0.4s;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 32px;
+            bottom: 5px;
+            background-color: #fff;
+            transition: 0.4s;
+        }
+        
+        input:checked+.slider {
+            background: linear-gradient(90grad, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+        }
+        
+        input:checked+.slider:before {
+            transform: translateX(-24px);
+        }
+        
+        .slider,
+        .round {
+            border-radius: 34px;
+        }
+        
+        .round::before {
+            border-radius: 50%;
+        }
+        
+        input:checked+.round::before {
+            background-color: hsl(230, 17%, 14%);
+        }
+        
+        .dark {
+            --main-background: hsl(230, 17%, 14%);
+            --main-font: white;
+        }
+        
+        .light {
+            --main-background: white;
+            --main-font: hsl(230, 17%, 14%);
+        }
+        
+        body {
+            background: var(--main-background);
+            color: var(--main-font);
+        }
+        
+        .toggle-switch {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .toggle-switch p {
+            padding: 1em;
+        }
+        
+        @media only screen and (max-width:970px) {
+            .toggle-switch {
+                margin-top: -4px;
+                margin-right: 12px;
+            }
+        }
+        
+        @media only screen and (max-width: 610px) {
+            .toggle-switch {
+                margin-top: -1px;
+                margin-right: 30px;
+            }
+        }
+    </style>
+
+    <script>
+        const themeSwitcher = document.getElementById("theme-switch");
+
+        themeSwitcher.checked = false;
+
+        function clickHandler() {
+            if (this.checked) {
+                document.body.classList.remove("light");
+                document.body.classList.add("dark");
+                document.getElementById("themeLink").href = "../../static/css/theme2.css";
+                localStorage.setItem("theme", "../../static/css/theme2.css");
+            } else {
+                document.body.classList.add("light");
+                document.body.classList.remove("dark");
+                document.getElementById("themeLink").href = "../../static/css/theme.css";
+                localStorage.setItem("theme", "../../static/css/theme.css");
+            }
+        }
+        themeSwitcher.addEventListener("click", clickHandler);
+
+        window.onload = checkTheme();
+
+        function checkTheme() {
+            const localStorageTheme = localStorage.getItem("theme");
+            if (localStorageTheme !== null && localStorageTheme === "../../static/css/theme2.css") {
+                // set the theme of body
+                document.getElementById("themeLink").href = localStorageTheme;
+
+                // adjust the slider position
+                const themeSwitch = document.getElementById("theme-switch");
+                themeSwitch.checked = true;
+            }
+        }
+    </script>
+
+    </div>
+</header>
+<!-- End Header -->

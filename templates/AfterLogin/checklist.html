@@ -1,0 +1,262 @@
+{% extends 'snippits/base.html' %} {% load static %} {% block title %}
+<title>Notes Website</title>
+<meta content="" name="description">
+<meta content="" name="keywords"> {% endblock %}
+<!-- Required meta tags -->
+{% block head %}
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<!--- Our CSS file -->
+<style>
+    .page-header {
+        margin-top: 30px;
+    }
+    
+    .fa-trash-alt {
+        color: red;
+        float: right;
+        cursor: pointer;
+    }
+    
+    .todo-complete {
+        text-decoration: line-through;
+    }
+    
+    .todo-status-checkbox {
+        cursor: pointer;
+        margin-right: 10px;
+    }
+</style>
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="{% static 'afterLogin/css/dashBoardIndex.css' %}">
+<link rel="stylesheet" href="{% static 'afterLogin/css/allnotes.css' %}">
+<link rel="stylesheet" href="{% static 'afterLogin/css/AllnotesTable.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/modal.css' %}"> {% endblock %} {% block content %} {% for message in messages %}
+<section class="loginModal" style="    position: absolute;">
+    <div class="container text-center">
+        <div class="costumModal">
+            <div id="costumModal42" class="modal" data-easein="bounce" tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <style>
+                        .modal-content {
+                            border: 1px solid gray;
+                            background: black;
+                            border-radius: 12px;
+                            box-shadow: 0px 0px 11px #f1f1f1;
+                        }
+                        
+                        .modal-header {
+                            border-bottom: none;
+                        }
+                    </style>
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">
+                                ×
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+                            <p style="color: #ff8d00;">{{message}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<button href="#costumModal42" role="button" data-toggle="modal" style="display: none;" id="alertButton">alert</button>
+
+<script>
+    window.onload = function() {
+        document.getElementById('alertButton').click();
+    }
+</script>
+{% endfor %}
+<section class="loginModal">
+    <div class="container text-center">
+        <div class="costumModal">
+
+            <div id="costumModal30" class="modal" data-easein="bounce" tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">
+                                ×
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+
+                            <p>
+                                Conguration you have successfully logged in </p>
+                            <div class="social-icons">
+                                <a href=""><i class="fa fa-share text-white" style="font-size: 15px;">&nbsp;Share this
+                                        with your friend&nbsp;</i></a>
+                                <a class="social-icon social-icon--twitter">
+                                    <i class="fa fa-twitter"></i>
+                                    <div class="tooltip">Twitter</div>
+                                </a>
+
+                                <a class="social-icon social-icon--instagram">
+                                    <i class="fa fa-instagram"></i>
+                                    <div class="tooltip">Instagram</div>
+                                </a>
+                                <a class="social-icon social-icon--linkedin">
+                                    <i class="fa fa-linkedin"></i>
+                                    <div class="tooltip">LinkedIn</div>
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-warning text-white m-3" data-dismiss="modal" aria-hidden="true">
+                                Cancel
+                            </button>
+                            <button class="btn btn-danger text-white m-3" data-dismiss="modal" aria-hidden="true">
+                                Delete
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<section class="dashboardIndex">
+    {% include 'snippits/dashboardSidebar.html' %}
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn'></i>
+                <span class="dashboard text-white">Checklist</span>
+            </div>
+
+        </nav>
+        <div class="home-content">
+            <!-- <div class="overview-boxes">
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">All Notes</div>
+                        <div class="number">40,876</div>
+
+                    </div>
+                    <a href=""><i class='fa fa-book cart'></i></a>
+                </div>
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">Add Notes</div>
+                        <div class="number">$12,876</div>
+
+                    </div>
+                    <a href="{% url 'core:homeNotes' %}">
+                        <a href="{% url 'core:homeNotes' %}"><i class='fa fa-plus cart three'></i></a></a>
+                </div>
+                <div class="box">
+                    <div class="right-side">
+                        <div class="box-topic">Favorite Notes</div>
+                        <div class="number">38,876</div>
+
+                    </div>
+                    <a href="{% url 'core:favourite' %}">
+
+                        <i class='fa fa-heart-o cart two'></i>
+                    </a>
+                </div>
+            </div> -->
+
+            <div class="note-content tab-content">
+                <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+                <script src="https://kit.fontawesome.com/15974f9624.js" crossorigin="anonymous"></script>
+                <div class="container">
+
+                    <!-- title row -->
+                    <div class="row">
+                        <div class="offset-md-2 col-lg-9">
+                            <div class="page-header">
+                                <h1>
+                                    Create CheckList
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add a todo row -->
+                    <div class="row">
+                        <div class="offset-md-2 col-lg-9">
+                            <form method="post" action="{% url 'core:add' %}">
+                                {% csrf_token %}
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="title" placeholder="Add Task" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button type="submit" name="submit" class="btn btn-outline-primary">
+                                            Add
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <!-- todo list row -->
+                    <div class="row">
+                        <div class="offset-md-2 col-lg-6">
+                            <div class="list-group">
+                                {% for todo in tasks %}
+                                <div class="list-group-item {% if todo.isCompleted %} todo-complete {% endif %}">
+                                    <form style="display: inline;" method="post" action="{% url 'core:update' todo.id %}">
+                                        {% csrf_token %}
+                                        <input type="checkbox" name="isCompleted" onchange="this.form.submit()" {% if todo.isCompleted %} checked {% endif %} class="todo-status-checkbox" title="{% if not todo.isCompleted %} mark as done {% else %} mark undone {% endif %}">
+                                    </form>
+                                    {{ todo.title }}
+                                    <a href="{% url 'core:delete' todo.id %}" title="Delete">
+                                        <i class="far fa-trash-alt"></i>
+                                    </a>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script>
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".sidebarBtn");
+        sidebarBtn.onclick = function() {
+            sidebar.classList.toggle("active");
+            if (sidebar.classList.contains("active")) {
+                sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+            } else
+                sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+        }
+    </script>
+
+</section>
+
+<!-- endDashBoard  -->
+{% endblock %} {% block script %}
+<!-- Template Main JS File -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+
+
+{% endblock %}
