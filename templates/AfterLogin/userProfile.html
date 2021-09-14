@@ -6,7 +6,54 @@
 <link rel="stylesheet" href="{% static 'afterLogin/css/dashBoardIndex.css' %}">
 <link rel="stylesheet" href="{% static 'afterLogin/css/allnotes.css' %}">
 <link rel="stylesheet" href="{% static 'afterLogin/css/profile.css' %}">
-<link rel="stylesheet" href="{% static 'css/modal.css' %}"> {% endblock %} {% block content %}
+<link rel="stylesheet" href="{% static 'css/modal.css' %}">
+
+<style>
+    @media only screen and (max-width:840px) {
+        .dashboardIndex {
+            margin-top: 6px;
+        }
+        .contactUsPage .container .content {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            padding: 0px !important;
+            flex-direction: column-reverse !important;
+        }
+        .contactUsPage .content form {
+            width: 100% !important;
+            margin: auto !important;
+        }
+        .contactUsPage .content .image-box {
+            max-width: fit-content !important;
+            display: contents !important;
+            display: flex !important;
+            flex-direction: column !important;
+            margin: auto !important;
+            margin-top: 0% !important;
+        }
+        .home-section .home-content {
+            position: relative !important;
+            padding-top: 0px !important;
+        }
+        .contactUsPage .container {
+            display: flex;
+            display: contents !important;
+        }
+    }
+    
+    @media only screen and (max-width:455px) {
+        .contactUsPage .content form {
+            width: 70% !important;
+            margin: auto !important;
+        }
+        .contactUsPage .content .image-box img {
+            width: 254px !important;
+            height: 246px !important;
+        }
+    }
+</style>
+{% endblock %} {% block content %}
 
 <!-- DashBoar  -->
 {% for message in messages %}
@@ -55,7 +102,7 @@
 </script>
 {% endfor %}
 
-<section class="loginModal">
+<section class="loginModal" style="    position: absolute;">
     <div class="container text-center">
         <div class="costumModal">
 
